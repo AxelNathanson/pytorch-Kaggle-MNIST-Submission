@@ -71,7 +71,7 @@ class Solver(object):
         loss.backward()
         self.optimizer.step()
 
-    def train(self, num_epochs = 10):
+    def train(self, num_epochs=10):
         print(f'Started training. Will run for: {num_epochs} Epochs.',
               f'Iterations per Epoch: {int(len(self.train_set)/self.batch_size) + 1}.')
 
@@ -91,7 +91,8 @@ class Solver(object):
                     print(f'Done with iteration: {it}/{len(train_loader)}.')
                 
                 image, target = data
-                image.to(self.device); target.to(self.device)
+                image.to(self.device)
+                target.to(self.device)
              
                 self._step(image, target)
             
@@ -106,7 +107,7 @@ class Solver(object):
 
                 output = self.model(image)
                 # loss = self.criteria(output, target)
-                # self.train_loss_history.append(loss.item())
+                # self.val_loss_history.append(loss.item())
 
                 # Accuracy
                 _, prediction = torch.max(output, 1)

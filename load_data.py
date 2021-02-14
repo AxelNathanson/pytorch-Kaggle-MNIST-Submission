@@ -19,7 +19,7 @@ def load_dataset(csv_file, **kwargs):
     Optional Arguments:
         split {float} -- Training-set split
     Returns:
-        [tuple] -- (training_loader, validation_loader)
+        [tuple] -- (training_dataset, validation_dataset)
     """
 
     split = kwargs.pop('split', 0.85)
