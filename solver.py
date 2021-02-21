@@ -91,8 +91,8 @@ class Solver(object):
                     print(f'Done with iteration: {it}/{len(train_loader)}.')
                 
                 image, target = data
-                image.to(self.device)
-                target.to(self.device)
+                image = image.to(self.device)
+                target = target.to(self.device)
              
                 self._step(image, target)
             
